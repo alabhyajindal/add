@@ -1,4 +1,4 @@
-import * as wasm from 'wasm';
+import * as wasm from './wasm_bg.wasm';
 
 const btn = document.querySelector('button');
 const inputA = document.querySelector('#a');
