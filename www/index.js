@@ -15,7 +15,7 @@ function sendToRust() {
     const addedValues = wasm.add(valueA, valueB);
     result.textContent = addedValues;
   } else {
-    result.textContent = 'Please enter values you want to add';
+    result.textContent = 'Please enter the values you want to add';
   }
 }
 

@@ -8,15 +8,15 @@ use wasm_bindgen::prelude::*;
 #[global_allocator]
 static ALLOC: wee_alloc::WeeAlloc = wee_alloc::WeeAlloc::INIT;
 
-// #[wasm_bindgen]
-// extern {
-//     fn alert(s: &str);
-// }
+#[wasm_bindgen]
+extern {
+    fn alert(s: &str);
+}
 
-// #[wasm_bindgen]
-// pub fn greet(name: &str) {
-//     alert(&format!("Hello, {}!", name))
-// }
+#[wasm_bindgen]
+pub fn greet(name: &str) {
+    alert(&format!("Hello, {}!", name))
+}
 
 #[wasm_bindgen]
 pub fn add(a: i32, b: i32) -> i32 {
@@ -24,5 +24,9 @@ pub fn add(a: i32, b: i32) -> i32 {
     return result;
     // alert(&format!("The result is {}!", result))
 }
+
+// pub fn welcome() {
+    
+// }
 
 
