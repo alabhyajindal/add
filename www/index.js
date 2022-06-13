@@ -1,24 +1,42 @@
 import * as wasm from 'wasm';
 
-// Selecting DOM Elements
 const btn = document.querySelector('button');
 const inputA = document.querySelector('#a');
 const inputB = document.querySelector('#b');
 const result = document.querySelector('p');
+const form = document.querySelector('form');
+let operation = 'multiply';
 
-function sendToRust() {
-  const valueA = Number(inputA.value);
-  const valueB = Number(inputB.value);
+function performOperation() {
+  let valueA = Number(inputA.value);
+  let valueB = Number(inputB.value);
 
-  // Error handling in case the input fields are empty
   if (valueA != '' && valueB != '') {
-    const addedValues = wasm.add(valueA, valueB);
-    result.textContent = addedValues;
+    const caluculatedResult = operate(valueA, valueB);
+    result.textContent = caluculatedResult;
   } else {
     result.textContent = 'Please enter the values you want to add';
   }
 }
 
 btn.addEventListener('click', () => {
-  sendToRust();
+  performOperation();
 });
+
+form.addEventListener('click', (e) => {
+  if (e.target.id != '') {
+    operation = e.target.id;
+  }
+});
+
+function operate(a, b) {
+  if (operation == 'add') {
+    return wasm.add(a, b);
+  } else if (operation == 'subtract') {
+    return wasm.subtract(a, b);
+  } else if (operation == 'multiply') {
+    return wasm.multiply(a, b);
+  } else if (operation == 'divide') {
+    return wasm.divide(a, b);
+  }
+}

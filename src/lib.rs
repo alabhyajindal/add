@@ -25,8 +25,21 @@ pub fn add(a: i32, b: i32) -> i32 {
     // alert(&format!("The result is {}!", result))
 }
 
-// pub fn welcome() {
-    
-// }
+#[wasm_bindgen]
+pub fn subtract(a: i32, b: i32) -> i32 {
+    let result = a - b;
+    return result;
+}
 
+#[wasm_bindgen]
+pub fn multiply(a: i32, b: i32) -> i32 {
+    let result = a * b;
+    return result;
+}
+
+#[wasm_bindgen]
+pub fn divide(a: i32, b: i32) -> i32 {
+    let result = a / b;
+    return result;
+}
 
